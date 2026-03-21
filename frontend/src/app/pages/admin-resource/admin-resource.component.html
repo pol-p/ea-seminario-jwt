@@ -1,0 +1,21 @@
+<div class="card">
+  <h2>Recurso Crítico (Solo Admin)</h2>
+  <p class="muted">Esta vista consume un endpoint protegido por rol ADMIN.</p>
+
+  <button class="btn" (click)="loadProtectedResource()" [disabled]="loading">
+    <span *ngIf="loading">Cargando recurso...</span>
+    <span *ngIf="!loading">Consultar recurso protegido</span>
+  </button>
+
+  <div *ngIf="errorMessage" class="alert" style="margin-top: 10px;">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="message" class="card" style="margin-top: 12px; width: 100%; align-items: start;">
+    <p><strong>Mensaje:</strong> {{ message }}</p>
+    <p><strong>Rol:</strong> {{ role }}</p>
+    <p><strong>User ID:</strong> {{ userId }}</p>
+  </div>
+
+  <a routerLink="/home" style="margin-top: 12px;">Volver a Home</a>
+</div>
